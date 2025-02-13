@@ -1,0 +1,16 @@
+https://www.oracle.com/in/java/technologies/downloads/
+https://www.oracle.com/java/technologies/javase-jdk21-doc-downloads.html
+
+JDK 23 is the latest release of the Java SE Platform.
+
+JDK 21 is the latest Long-Term Support (LTS) release of the Java SE Platform.
+
+
+
+Product/file description	File size	Download
+x64 Compressed Archive	185.92 MB	
+https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.zip (sha256)
+x64 Installer	164.31 MB	
+https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.exe (sha256)
+x64 MSI Installer	163.06 MB	
+https://download.oracle.com/java/21/latest/jdk-21_windows-x64_bin.msi (sha256)
