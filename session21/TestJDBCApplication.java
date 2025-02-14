@@ -11,17 +11,17 @@ package session21;
 
 	        // Replace with your database name
 	        String url
-	            = "jdbc:mysql://localhost:3306/your_database";
+	            = "jdbc:mysql://localhost:3306/devschema";
 
 	        // Replace with your MySQL username
-	        String username = "KVRM";
+	        String username = "devuser";
 
 	        // Replace with your MySQL password
-	        String password = "password";
+	        String password = "Mysql#123";
 
 	        // Updated query syntax for modern databases
 	        String query
-	            = "INSERT INTO students (id, name) VALUES (109, 'bhatt')";
+	            = "INSERT INTO pious_student (ID, NAME, ROLL_NO, DEPT) VALUES (107, 'alia', 7, 'BSC_COMP' )";
 
 	        // Establish JDBC Connection
 	        try {
