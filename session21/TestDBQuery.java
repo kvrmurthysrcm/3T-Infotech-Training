@@ -34,6 +34,15 @@ public class TestDBQuery {
 		testDBQuery.testJDBCTransaction(connection, stmt);
 		
 		testDBQuery.testJDBCSavePoint(connection, stmt);
+		
+		// implement the batch processing:
+		// https://www.tutorialspoint.com/jdbc/jdbc-batch-processing.htm
+		
+		// Implement the execution of stored procedures using CallableStatement
+		// https://www.tutorialspoint.com/jdbc/jdbc-stored-procedure.htm
+		
+		// Implement the RowSet example
+		// https://www.tutorialspoint.com/jdbc/jdbc-rowset.htm
 	}
 
 	/*
@@ -154,7 +163,7 @@ public class TestDBQuery {
 	      } catch (SQLException e) {
 	         e.printStackTrace();
 	      }
-	}
+	} // End of updateStudentData()...
 
 	private void getStudentData(Statement stmt) {
 		
@@ -195,7 +204,7 @@ public class TestDBQuery {
 			e.printStackTrace();
 		}
 		return stmt;
-	}
+	} // End of getStmt()...
 
 	/*
 	 * Create JDBC Connection
@@ -222,5 +231,5 @@ public class TestDBQuery {
                                + e.getMessage());
         }
         return connection;
-	}
-}
+	} // End of getDBConnection()
+} // End of TestDBQuery class
