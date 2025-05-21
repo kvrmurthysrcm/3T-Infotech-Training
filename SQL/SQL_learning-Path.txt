@@ -1,0 +1,5 @@
+Learning Path Summary
+Level	Topics
+✅ Beginner	SELECT, JOINs, Aggregates, GROUP BY, HAVING
+🔼 Intermediate	Subqueries, CTEs, Window Functions, Indexes
+🚀 Advanced	Triggers, Procedures, Optimization, Analytics
