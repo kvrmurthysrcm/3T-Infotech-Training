@@ -1,0 +1,121 @@
+Great! Let’s take a **real-world scenario** — a **Retail Store Sales System** — and apply SQL aggregate functions, `GROUP BY`, `ORDER BY`, and `HAVING` on a practical dataset.
+
+---
+
+## 🛒 Real-World Case: **Retail Sales System**
+
+### ✅ Step 1: Create Table `Sales`
+
+```sql
+CREATE TABLE Sales (
+    SaleID INT PRIMARY KEY,
+    ProductName VARCHAR(100),
+    Category VARCHAR(50),
+    Quantity INT,
+    PricePerUnit DECIMAL(10, 2),
+    SaleDate DATE,
+    SalesPerson VARCHAR(50)
+);
+```
+
+---
+
+### ✅ Step 2: Sample Data
+
+```sql
+INSERT INTO Sales (SaleID, ProductName, Category, Quantity, PricePerUnit, SaleDate, SalesPerson) VALUES
+(1, 'Laptop', 'Electronics', 2, 800.00, '2024-01-10', 'Alice'),
+(2, 'Mouse', 'Electronics', 10, 20.00, '2024-01-11', 'Bob'),
+(3, 'Desk Chair', 'Furniture', 3, 150.00, '2024-01-12', 'Alice'),
+(4, 'Monitor', 'Electronics', 4, 250.00, '2024-01-13', 'Charlie'),
+(5, 'Notebook', 'Stationery', 20, 2.50, '2024-01-14', 'Bob'),
+(6, 'Desk', 'Furniture', 1, 300.00, '2024-01-15', 'Alice'),
+(7, 'Pen', 'Stationery', 50, 1.20, '2024-01-16', 'Charlie'),
+(8, 'Printer', 'Electronics', 1, 120.00, '2024-01-17', 'David');
+```
+
+---
+
+### ✅ Step 3: Example Queries
+
+---
+
+### 1️⃣ **Total Sales Value per Category**
+
+```sql
+SELECT
+    Category,
+    SUM(Quantity * PricePerUnit) AS TotalSales
+FROM Sales
+GROUP BY Category
+ORDER BY TotalSales DESC;
+```
+
+📌 *This shows which category generated the most revenue.*
+
+---
+
+### 2️⃣ **Average Price per Product Category**
+
+```sql
+SELECT
+    Category,
+    AVG(PricePerUnit) AS AvgPrice
+FROM Sales
+GROUP BY Category;
+```
+
+---
+
+### 3️⃣ **Total Items Sold by SalesPerson**
+
+```sql
+SELECT
+    SalesPerson,
+    SUM(Quantity) AS TotalItemsSold
+FROM Sales
+GROUP BY SalesPerson
+ORDER BY TotalItemsSold DESC;
+```
+
+---
+
+### 4️⃣ **Filter: SalesPersons with Revenue > \$1000**
+
+```sql
+SELECT
+    SalesPerson,
+    SUM(Quantity * PricePerUnit) AS TotalRevenue
+FROM Sales
+GROUP BY SalesPerson
+HAVING SUM(Quantity * PricePerUnit) > 1000;
+```
+
+---
+
+### 5️⃣ **Max and Min Unit Price per Category**
+
+```sql
+SELECT
+    Category,
+    MAX(PricePerUnit) AS MaxPrice,
+    MIN(PricePerUnit) AS MinPrice
+FROM Sales
+GROUP BY Category;
+```
+
+---
+
+### 🔁 TL;DR (Real World Mapping)
+
+| Requirement                        | SQL Feature Used          |
+| ---------------------------------- | ------------------------- |
+| Sales totals per category          | `SUM()`, `GROUP BY`       |
+| Filter top-performing salespersons | `HAVING`, `SUM()`         |
+| Compare prices                     | `MAX()`, `MIN()`, `AVG()` |
+| Sort by highest revenue            | `ORDER BY`                |
+| Track inventory flow               | `SUM(Quantity)`           |
+
+---
+
+Would you like to extend this to include customer data, discounts, or monthly sales trends next?

@@ -1,0 +1,69 @@
+CREATE TABLE Sales (
+    SaleID INT PRIMARY KEY,
+    SalesPerson VARCHAR(50),
+    Region VARCHAR(50),
+    SaleAmount DECIMAL(10, 2),
+    SaleDate DATE
+);
+
+
+INSERT INTO Sales (SaleID, SalesPerson, Region, SaleAmount, SaleDate) VALUES
+(1, 'Alice', 'North', 1200.00, '2024-01-10'),
+(2, 'Bob', 'South', 950.00, '2024-01-11'),
+(3, 'Alice', 'North', 1700.00, '2024-01-12'),
+(4, 'Charlie', 'East', 600.00, '2024-01-13'),
+(5, 'Bob', 'South', 2000.00, '2024-01-14'),
+(6, 'Alice', 'North', 3000.00, '2024-01-15'),
+(7, 'Charlie', 'East', 400.00, '2024-01-16'),
+(8, 'David', 'West', 1800.00, '2024-01-17');
+
+
+SELECT
+    MIN(SaleAmount) AS MinSale,
+    MAX(SaleAmount) AS MaxSale,
+    AVG(SaleAmount) AS AvgSale,
+    SUM(SaleAmount) AS TotalSales,
+    COUNT(*) AS TotalTransactions
+FROM Sales;
+
+
+SELECT
+    SalesPerson,
+    COUNT(*) AS NumSales,
+    SUM(SaleAmount) AS TotalSales,
+    AVG(SaleAmount) AS AvgSale
+FROM Sales
+GROUP BY SalesPerson;
+
+
+SELECT
+    Region,
+    SUM(SaleAmount) AS TotalSales
+FROM Sales
+GROUP BY Region
+ORDER BY TotalSales DESC;
+
+
+
+SELECT
+    SalesPerson,
+    SUM(SaleAmount) AS TotalSales
+FROM Sales
+GROUP BY SalesPerson
+HAVING SUM(SaleAmount) > 3000;
+
+
+
+| Concept    | Purpose                                               |
+| ---------- | ----------------------------------------------------- |
+| `MIN()`    | Finds the smallest value                              |
+| `MAX()`    | Finds the largest value                               |
+| `AVG()`    | Calculates average                                    |
+| `SUM()`    | Adds up values                                        |
+| `COUNT()`  | Counts rows                                           |
+| `GROUP BY` | Groups rows for aggregation                           |
+| `ORDER BY` | Sorts result (ASC by default, DESC optional)          |
+| `HAVING`   | Filters aggregated groups (like WHERE but for groups) |
+
+
+

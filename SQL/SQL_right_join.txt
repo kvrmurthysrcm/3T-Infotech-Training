@@ -1,0 +1,44 @@
+-- Customers
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    CustomerName VARCHAR(100),
+    City VARCHAR(50)
+);
+
+-- Orders
+CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    OrderDate DATE,
+    CustomerID INT,
+    Amount DECIMAL(10, 2),
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+);
+
+-- Customers
+INSERT INTO Customers (CustomerID, CustomerName, City) VALUES
+(1, 'Alice', 'New York'),
+(2, 'Bob', 'Los Angeles'),
+(3, 'Charlie', 'Chicago'),
+(4, 'Diana', 'Miami');
+
+-- Orders
+INSERT INTO Orders (OrderID, OrderDate, CustomerID, Amount) VALUES
+(101, '2024-01-10', 1, 250.00),
+(102, '2024-02-15', 1, 450.00),
+(103, '2024-03-05', 2, 300.00),
+(104, '2024-03-20', 3, 150.00),
+(105, '2024-04-01', NULL, 500.00); -- Order with no customer
+
+
+SELECT
+    Customers.CustomerID,
+    Customers.CustomerName,
+    Orders.OrderID,
+    Orders.OrderDate,
+    Orders.Amount
+FROM
+    Customers
+RIGHT JOIN Orders ON Customers.CustomerID = Orders.CustomerID;
+
+
+
